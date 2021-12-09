@@ -1,0 +1,27 @@
+<svg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin meet' viewBox='0 0 350 350'>
+    <style>
+        .base {
+            fill: white;
+            font-family: serif;
+            font-size: 24px;
+        }
+    </style>
+    <filter id='noiseFilter'>
+        <feGaussianBlur stdDeviation='50' result='blur' />
+        <feTurbulence type='fractalNoise' baseFrequency='10.5' numOctaves='8' />
+        <feColorMatrix type='saturate' values='0' result='grain' />
+        <feComposite operator='in' in='blur' in2='grain' />
+    </filter>
+    <filter id='blur'>
+        <feGaussianBlur stdDeviation='0.3' result='blur' />
+    </filter>
+    <defs>
+        <pattern id="star" viewBox="0,0,10,10" width="5%" height="5%">
+            <rect transform="(276 5 5)" x="2.5px" y="2.5px" width="5px" height="5px"
+                style='fill: none; stroke-width:0.5px; stroke:#90BE6D' />
+        </pattern>
+    </defs>
+    <rect x="0" y="0" width="350" height="350" fill="#000" />
+    <rect x="0" y="0" width="350" height="350" fill="#fff" opacity="0.25" filter="url(#noiseFilter)" />
+    <polygon points="170 10, 350 350, 0 350" fill="url(#star)" filter="url(#blur)" />
+</svg>
