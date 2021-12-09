@@ -48,7 +48,7 @@ contract ImageGenerator is ERC721URIStorage {
       style=string(abi.encodePacked(" style='fill: ", palette[randomColor], "'"));
     }
 
-    string memory pattern = string(abi.encodePacked('<defs><pattern id="star" viewBox="0,0,10,10" width="', tilingS, '%" height="', tilingS, '%"> <rect transform="('));
+    string memory pattern = string(abi.encodePacked('<defs><pattern id="star" viewBox="0,0,10,10" width="', tilingS, '%" height="', tilingS, '%"> <rect transform="rotate('));
 
     // Make rect
     string memory rectStart = string(abi.encodePacked(Strings.toString(rotation), ' 5 5)"  x="2.5px" y="2.5px" width="5px" height="5px"'));
